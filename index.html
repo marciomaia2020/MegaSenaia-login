@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Números Mega-Sena</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<!--
+    <div id="auth-forms">
+        <form id="signup-form" class="auth-form">
+            <h2>Criar Conta</h2>
+            <label for="signup-username">Usuário:</label>
+            <input type="text" id="signup-username" name="username" required>
+            <label for="signup-password">Senha:</label>
+            <input type="password" id="signup-password" name="password" required>
+            <button type="submit">Criar Conta</button>
+            <p>Já tem uma conta? <a href="#" onclick="showLoginForm()">Faça login</a></p>
+        </form>
+
+        <form id="login-form" class="auth-form" style="display:none;">
+            <h2>Login</h2>
+            <label for="login-username">Usuário:</label>
+            <input type="text" id="login-username" name="username" required>
+            <label for="login-password">Senha:</label>
+            <input type="password" id="login-password" name="password" required>
+            <button type="submit">Login</button>
+            <p>Não tem uma conta? <a href="#" onclick="showSignupForm()">Crie uma conta</a></p>
+        </form>
+    </div>
+-->
+
+    
+    <div class="container">
+        <h1>Gerador de Números Mega-Sena</h1>
+        <small>
+            Sorteia 6, ganhe com 4 ou 5 números dentre os 60. Marque de 6 a 20 números.
+        </small>
+
+        <p><small>Escolha pelo menos 3 números fixos</small></p>
+        <div class="number-selection">
+            <label for="fixed-number-1">Número Fixo 1:</label>
+            <input type="number" id="fixed-number-1" min="1" max="60" onchange="validateDuplicateNumbers()">
+            
+            <label for="fixed-number-2" style="display:none;">Número Fixo 2:</label>
+            <input type="number" id="fixed-number-2" min="1" max="60" style="display:none;" onchange="validateDuplicateNumbers()">
+            
+            <label for="fixed-number-3" style="display:none;">Número Fixo 3:</label>
+            <input type="number" id="fixed-number-3" min="1" max="60" style="display:none;" onchange="validateDuplicateNumbers()">
+        </div>
+        <button onclick="generateNumbers()">Gerar Números</button>
+        <button onclick="saveGame()">Salvar Jogo</button>
+        <button onclick="exportToExcel()">Exportar para Excel</button>
+        <div id="generated-numbers" class="numbers-display"></div>
+        <div id="saved-games" class="numbers-display"></div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
